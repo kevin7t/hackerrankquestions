@@ -31,6 +31,7 @@ class Result {
         Integer maxHourglass = 0;
         for (int i = 0; i< arr.get(0).size(); i++){
             for(int j = 0; j < arr.size(); j ++){
+                //We need to test if when we check for +2 it will be less than array size, otherwise we get array index out of bounds error
                 if(i+2 < arr.size() && j+2 < arr.get(i).size()){
                     //System.out.println("First row: " +Math.abs(arr.get(i).get(j)+ arr.get(i).get(j+1) + arr.get(i).get(j+2)));
                     //System.out.println("Second row: " +arr.get(i+1).get(j+1));

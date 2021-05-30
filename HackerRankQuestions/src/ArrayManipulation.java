@@ -23,6 +23,8 @@ class ArrayManipulation {
             int end = integers.get(1);
             int amount = integers.get(2);
             //for start to end, add amount to the array
+            //e.g if n is 10, therefore from first element to 5th element we will put in the value 3
+            //if next one is 4,5,7 then from 4th element to 8th element we will add in 7 etc
 
             for (int i = start-1; i<= end-1; i++ ) {
                 array[i] += amount;
