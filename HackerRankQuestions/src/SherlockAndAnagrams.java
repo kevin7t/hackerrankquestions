@@ -19,21 +19,17 @@ class SherlockAndAnagrams {
             for (int j = i+1; j <= s.length(); j++) {
                 String substring = s.substring(i, j);
                 char array[] = substring.toCharArray();
-//                Arrays.sort(array);
+                Arrays.sort(array);
                 String orderedSubString = String.valueOf(array);
-                if (orderedSubString != "") {
-                    if (mapOfSubstrings.get(orderedSubString) != null) {
-                        mapOfSubstrings.put(orderedSubString, mapOfSubstrings.get(orderedSubString) + 1);
-                    } else {
-                        mapOfSubstrings.put(orderedSubString, 1);
-                    }
+                Integer substringCount = mapOfSubstrings.get(orderedSubString);
+
+                if (substringCount != null) {
+                    mapOfSubstrings.put(orderedSubString, substringCount + 1);
+                    results+=substringCount;
+                } else {
+                    mapOfSubstrings.put(orderedSubString, 1);
                 }
-            }
-        }
-        //count the pairs from the hashmap
-        for (Map.Entry<String, Integer> entry : mapOfSubstrings.entrySet()) {
-            if (entry.getValue() > 1) {
-                results++;
+
             }
         }
         System.out.println(results);
