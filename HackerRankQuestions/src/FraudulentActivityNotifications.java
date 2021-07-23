@@ -20,14 +20,14 @@ public class FraudulentActivityNotifications {
          *
          */
 
-        int[] array = {10,20,30,40,50};
+        int[] array = {10, 20, 30, 40, 50};
         int days = 3;
         int notification = 0;
         //We need to start on array[days] as this is 5 prior, hence the 6th element
         //Look back at array[0] to array[days -1] and find the median
         //Calculate 2x median and if it is greater than the arrays[days] element then we have issue, else move on +
 
-        if (array.length > (days+1)){
+        if (array.length > (days + 1)) {
             for (int i = days; i < array.length; i++) {
                 //Needs to be current index minus days
                 int startIndex = i - days;
@@ -47,6 +47,6 @@ public class FraudulentActivityNotifications {
         Arrays.sort(array);
         int size = array.length;
 
-        return array[size/2];
+        return array[size / 2];
     }
 }
