@@ -6,8 +6,8 @@ public class BestTimeToBuyAndSellStock {
         //Loop through prices using i
         int i = 0;
         while (i < prices.length - 1) {
-            //Find the valleys, if our search is < prices.length - 1 and also if current element < next element
-            //increment the pointer
+            //Find the first valleys, if our search is < prices.length - 1 and also if current element < next element
+            //increment the pointer while the price of the current element is greater than the next, therefore putting us in a descend
             while (i < prices.length - 1 && prices[i] >= prices[i + 1]) {
                 i++;
                 System.out.println("Valley: current price is " +  prices[i] + " comparison price is greater than current : " + prices[i + 1]);
@@ -17,8 +17,8 @@ public class BestTimeToBuyAndSellStock {
             int valley = prices[i];
 
 
-            //Find the peaks, if our search is < prices.length - 1 and also if current element > next element
-            //increment the pointer
+            //Find the peaks after finding the valleys, if our search is < prices.length - 1 and also if current element > next element
+            //increment the pointer while the price of the current pointer is less than the next, therefore we are ascending to find the highest before it goes back down
             while (i < prices.length - 1 && prices[i] <= prices[i + 1]) {
                 System.out.println("Peak: current price is " +  prices[i] + " comparison price is less than current : " + prices[i + 1]);
                 i++;
@@ -28,7 +28,7 @@ public class BestTimeToBuyAndSellStock {
 
             int peak = prices[i];
 
-            //Increment profit profit+= peak - valley
+            //Increment profit
             profit += peak - valley;
         }
 
