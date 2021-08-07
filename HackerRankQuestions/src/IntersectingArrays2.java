@@ -6,8 +6,6 @@ class IntersectingArrays2 {
     public static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[] nums1 = {2, 2, 8, 8, 7, 6, 5};
-        int[] nums2 = {1, 1, 2, 2, 4, 4, 8, 8, 7, 9};
         ArrayList<Integer> result = new ArrayList<>();
 
         /**
@@ -31,25 +29,34 @@ class IntersectingArrays2 {
          *
          * if both are the same we will add this value to new array and also increase both pointers at the same time
          */
-
+        int[] nums1 = {1,2};
+        int[] nums2 = {1,1};
+        int[] results = new int[nums1.length * nums2.length];
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         int i = 0;
         int j = 0;
+        int k = 0;
 
-        while (i < nums1.length && j < nums2.length) {
+        while (i < nums1.length  && j < nums2.length) {
             if (nums1[i] > nums2[j]) {
                 j++;
+                continue;
             }
             if (nums1[i] < nums2[j]) {
                 i++;
+                continue;
             }
             if (nums1[i] == nums2[j]) {
-                result.add(nums1[i]);
+                results[k] = nums1[i];
+                k++;
                 i++;
                 j++;
+                continue;
             }
         }
-        System.out.println(result.toString());
+        for (int i1 : Arrays.copyOfRange(results, 0, k)) {
+            System.out.println(i1);
+        }
     }
 }
